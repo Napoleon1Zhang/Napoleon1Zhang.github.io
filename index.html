@@ -238,39 +238,81 @@
       color: var(--hover-color);
     }
 
-    /* 博客文章 */
-    .blog-list {
+    /* 工作经历 */
+    .experience-list {
       list-style: none;
     }
 
-    .blog-item {
+    .experience-item {
       padding: 1.5rem;
-      border-bottom: 1px solid var(--border-color);
-      transition: background 0.3s;
-    }
-
-    .blog-item:hover {
+      border-left: 3px solid var(--primary-color);
+      margin-bottom: 1.5rem;
       background: rgba(59, 130, 246, 0.05);
+      border-radius: 8px;
+      transition: all 0.3s;
+      position: relative;
     }
 
-    .blog-item:last-child {
-      border-bottom: none;
+    .experience-item:hover {
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateX(5px);
     }
 
-    .blog-item h3 {
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .experience-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .experience-item h3 {
       color: var(--primary-color);
       margin-bottom: 0.5rem;
+      font-size: 1.3rem;
     }
 
-    .blog-item p {
+    .experience-company {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .experience-period {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .experience-item p {
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .experience-duties {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.75rem;
+    }
+
+    .experience-duties li {
       color: var(--text-secondary);
       margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
     }
 
-    .blog-meta {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      opacity: 0.7;
+    .experience-duties li:before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--primary-color);
     }
 
     /* 联系方式 */
@@ -379,7 +421,7 @@
         <li><a href="#about">关于我</a></li>
         <li><a href="#skills">技能</a></li>
         <li><a href="#projects">项目</a></li>
-        <li><a href="#blog">博客</a></li>
+        <li><a href="#experience">工作经历</a></li>
         <li><a href="#contact">联系</a></li>
       </ul>
     </div>
@@ -456,24 +498,55 @@
         </div>
       </section>
 
-      <!-- 博客 -->
-      <section id="blog" class="card">
-        <h2>📝 最新文章</h2>
-        <ul class="blog-list">
-          <li class="blog-item">
-            <h3><a href="#" style="color: var(--primary-color); text-decoration: none;">文章标题 1</a></h3>
-            <p>这是文章的摘要内容，简要介绍了文章的主要内容和观点...</p>
-            <div class="blog-meta">2024年1月1日 · 5分钟阅读</div>
+      <!-- 工作经历 -->
+      <section id="experience" class="card">
+        <h2>💼 工作经历</h2>
+        <ul class="experience-list">
+          <li class="experience-item">
+            <div class="experience-header">
+              <div>
+                <h3>职位名称</h3>
+                <div class="experience-company">公司名称</div>
+              </div>
+              <div class="experience-period">2022年1月 - 至今</div>
+            </div>
+            <p>工作描述：在这里描述你的主要工作职责和成就...</p>
+            <ul class="experience-duties">
+              <li>负责核心业务模块的开发和维护</li>
+              <li>参与技术架构设计和优化</li>
+              <li>指导团队成员进行代码审查和技术分享</li>
+              <li>优化系统性能，提升用户体验</li>
+            </ul>
           </li>
-          <li class="blog-item">
-            <h3><a href="#" style="color: var(--primary-color); text-decoration: none;">文章标题 2</a></h3>
-            <p>这是另一篇文章的摘要，分享了不同的技术见解和经验...</p>
-            <div class="blog-meta">2024年1月15日 · 8分钟阅读</div>
+          <li class="experience-item">
+            <div class="experience-header">
+              <div>
+                <h3>职位名称</h3>
+                <div class="experience-company">公司名称</div>
+              </div>
+              <div class="experience-period">2020年6月 - 2021年12月</div>
+            </div>
+            <p>工作描述：在这里描述你的主要工作职责和成就...</p>
+            <ul class="experience-duties">
+              <li>参与产品需求分析和技术方案设计</li>
+              <li>开发高质量的前端/后端代码</li>
+              <li>与产品、设计团队协作完成项目交付</li>
+            </ul>
           </li>
-          <li class="blog-item">
-            <h3><a href="#" style="color: var(--primary-color); text-decoration: none;">文章标题 3</a></h3>
-            <p>第三篇文章的内容摘要，探讨了更深层次的技术问题...</p>
-            <div class="blog-meta">2024年2月1日 · 6分钟阅读</div>
+          <li class="experience-item">
+            <div class="experience-header">
+              <div>
+                <h3>职位名称</h3>
+                <div class="experience-company">公司名称</div>
+              </div>
+              <div class="experience-period">2018年7月 - 2020年5月</div>
+            </div>
+            <p>工作描述：在这里描述你的主要工作职责和成就...</p>
+            <ul class="experience-duties">
+              <li>参与公司核心产品的开发工作</li>
+              <li>学习并应用新技术解决业务问题</li>
+              <li>参与代码重构和性能优化工作</li>
+            </ul>
           </li>
         </ul>
       </section>
