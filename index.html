@@ -1,37 +1,542 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <title>Yaowu Zhang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yaowu Zhang 的个人博客 - 分享技术、经验和思考">
+  <title>Yaowu Zhang | 个人博客</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #3b82f6;
+      --secondary-color: #8b5cf6;
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --border-color: #334155;
+      --hover-color: #60a5fa;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
-      padding: 60px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
+
+    /* 导航栏 */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    /* 主要内容 */
+    main {
+      margin-top: 80px;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Hero 区域 */
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+      border-radius: 20px;
+      margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* 卡片样式 */
     .card {
-      max-width: 700px;
-      background: #020617;
-      padding: 32px;
+      background: var(--bg-card);
       border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.4);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border-color);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    h1 { margin-top: 0; }
-    a { color: #38bdf8; text-decoration: none; }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* 关于我 */
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      margin: 0 auto;
+    }
+
+    .about-text {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 技能标签 */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid var(--primary-color);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s;
+      color: var(--text-primary);
+    }
+
+    .skill-tag:hover {
+      background: rgba(59, 130, 246, 0.2);
+      transform: scale(1.05);
+    }
+
+    /* 项目网格 */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      border-color: var(--primary-color);
+      transform: translateY(-5px);
+    }
+
+    .project-card h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .project-links a:hover {
+      color: var(--hover-color);
+    }
+
+    /* 博客文章 */
+    .blog-list {
+      list-style: none;
+    }
+
+    .blog-item {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      transition: background 0.3s;
+    }
+
+    .blog-item:hover {
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .blog-item:last-child {
+      border-bottom: none;
+    }
+
+    .blog-item h3 {
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-item p {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    /* 联系方式 */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid var(--primary-color);
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+
+    .contact-link:hover {
+      background: rgba(59, 130, 246, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-color);
+      margin-top: 4rem;
+    }
+
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .subtitle {
+        font-size: 1.2rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-links {
+        flex-direction: column;
+      }
+
+      main {
+        padding: 1rem;
+      }
+    }
+
+    /* 滚动动画 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    /* 图标样式 */
+    .icon {
+      display: inline-block;
+      width: 1.2em;
+      height: 1.2em;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>👋 Hi, I'm Yaowu Zhang</h1>
-    <p>This is my GitHub Pages website.</p>
-    <p>
-      GitHub：
-      <a href="https://github.com/Napoleon1Zhang" target="_blank">
-        github.com/Napoleon1Zhang
-      </a>
-    </p>
-  </div>
+  <!-- 导航栏 -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">Yaowu Zhang</div>
+      <ul class="nav-links">
+        <li><a href="#about">关于我</a></li>
+        <li><a href="#skills">技能</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#blog">博客</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 主要内容 -->
+  <main>
+    <div class="container">
+      <!-- Hero 区域 -->
+      <section class="hero">
+        <h1>👋 你好，我是 Yaowu Zhang</h1>
+        <p class="subtitle">程序员 | 技术爱好者</p>
+        <p>欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。</p>
+      </section>
+
+      <!-- 关于我 -->
+      <section id="about" class="card">
+        <h2>📖 关于我</h2>
+        <div class="about-content">
+          <div class="avatar">YZ</div>
+          <div class="about-text">
+            <p>我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。</p>
+            <p>在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。</p>
+            <p>这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 技能 -->
+      <section id="skills" class="card">
+        <h2>🛠️ 技能栈</h2>
+        <div class="skills-grid">
+          <div class="skill-tag">JavaScript</div>
+          <div class="skill-tag">TypeScript</div>
+          <div class="skill-tag">React</div>
+          <div class="skill-tag">Vue.js</div>
+          <div class="skill-tag">Node.js</div>
+          <div class="skill-tag">Python</div>
+          <div class="skill-tag">Java</div>
+          <div class="skill-tag">Git</div>
+          <div class="skill-tag">Docker</div>
+          <div class="skill-tag">Linux</div>
+        </div>
+      </section>
+
+      <!-- 项目 -->
+      <section id="projects" class="card">
+        <h2>💼 项目展示</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>项目名称 1</h3>
+            <p>这是一个项目的简短描述，展示了项目的核心功能和特点。使用了一些先进的技术栈。</p>
+            <div class="project-links">
+              <a href="#" target="_blank">🔗 在线预览</a>
+              <a href="https://github.com/Napoleon1Zhang" target="_blank">📦 GitHub</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <h3>项目名称 2</h3>
+            <p>这是另一个项目的描述，展示了不同的技术应用场景和解决方案。</p>
+            <div class="project-links">
+              <a href="#" target="_blank">🔗 在线预览</a>
+              <a href="https://github.com/Napoleon1Zhang" target="_blank">📦 GitHub</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <h3>项目名称 3</h3>
+            <p>第三个项目展示了更多的技术实践和创新想法。</p>
+            <div class="project-links">
+              <a href="#" target="_blank">🔗 在线预览</a>
+              <a href="https://github.com/Napoleon1Zhang" target="_blank">📦 GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 博客 -->
+      <section id="blog" class="card">
+        <h2>📝 最新文章</h2>
+        <ul class="blog-list">
+          <li class="blog-item">
+            <h3><a href="#" style="color: var(--primary-color); text-decoration: none;">文章标题 1</a></h3>
+            <p>这是文章的摘要内容，简要介绍了文章的主要内容和观点...</p>
+            <div class="blog-meta">2024年1月1日 · 5分钟阅读</div>
+          </li>
+          <li class="blog-item">
+            <h3><a href="#" style="color: var(--primary-color); text-decoration: none;">文章标题 2</a></h3>
+            <p>这是另一篇文章的摘要，分享了不同的技术见解和经验...</p>
+            <div class="blog-meta">2024年1月15日 · 8分钟阅读</div>
+          </li>
+          <li class="blog-item">
+            <h3><a href="#" style="color: var(--primary-color); text-decoration: none;">文章标题 3</a></h3>
+            <p>第三篇文章的内容摘要，探讨了更深层次的技术问题...</p>
+            <div class="blog-meta">2024年2月1日 · 6分钟阅读</div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- 联系方式 -->
+      <section id="contact" class="card">
+        <h2>📮 联系方式</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;">欢迎通过以下方式与我联系：</p>
+        <div class="contact-links">
+          <a href="https://github.com/Napoleon1Zhang" target="_blank" class="contact-link">
+            <span>🐙</span>
+            <span>GitHub</span>
+          </a>
+          <a href="mailto:your-email@example.com" class="contact-link">
+            <span>📧</span>
+            <span>Email</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span>💼</span>
+            <span>LinkedIn</span>
+          </a>
+          <a href="#" class="contact-link">
+            <span>🐦</span>
+            <span>Twitter</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    <p>&copy; 2024 Yaowu Zhang. All rights reserved.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with ❤️ using HTML & CSS</p>
+  </footer>
+
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // 导航栏滚动效果
+    let lastScroll = 0;
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 100) {
+        nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
 </body>
 </html>
