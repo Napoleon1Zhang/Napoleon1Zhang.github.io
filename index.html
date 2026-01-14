@@ -154,12 +154,17 @@
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
       margin: 0 auto;
+      overflow: hidden;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .about-text {
@@ -372,7 +377,6 @@
       .avatar {
         width: 150px;
         height: 150px;
-        font-size: 3rem;
       }
 
       .projects-grid {
@@ -441,7 +445,9 @@
       <section id="about" class="card">
         <h2>📖 关于我</h2>
         <div class="about-content">
-          <div class="avatar">YZ</div>
+          <div class="avatar">
+            <img src="241768207359_.pic.jpg" alt="Yaowu Zhang">
+          </div>
           <div class="about-text">
             <p>我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。</p>
             <p>在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。</p>
