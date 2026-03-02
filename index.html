@@ -64,6 +64,7 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
@@ -75,6 +76,28 @@
 
     .nav-links a:hover {
       color: var(--primary-color);
+    }
+
+    /* 语言切换按钮样式 */
+    .lang-switch-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .lang-switch-btn:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: rgba(59, 130, 246, 0.1);
     }
 
     /* 主要内容 */
@@ -209,38 +232,127 @@
       border-radius: 12px;
       padding: 1.5rem;
       transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .project-card:hover {
       border-color: var(--primary-color);
       transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+    }
+
+    .project-header {
+      margin-bottom: 0.5rem;
     }
 
     .project-card h3 {
       color: var(--primary-color);
+      font-size: 1.25rem;
+      font-weight: 700;
       margin-bottom: 0.5rem;
     }
-
-    .project-card p {
-      color: var(--text-secondary);
-      margin-bottom: 1rem;
+    
+    .project-role {
       font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.25rem;
+      display: block;
     }
 
+    .project-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      display: block;
+      opacity: 0.8;
+    }
+
+    .project-desc {
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .project-details {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      flex-grow: 1; /* 让列表占据剩余空间，把链接推到底部 */
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* 每个技术点之间的间距 */
+    }
+
+    /* 技术点列表 - 极简风格 */
+    .project-details {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.5rem 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem; /* 列表项之间的间距 */
+    }
+
+    .project-details li {
+      position: relative;
+      padding-left: 1.2rem; /* 给圆点留出空间 */
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      text-align: left;
+    }
+
+    /* 自定义圆点 */
+    .project-details li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--primary-color); /* 圆点颜色 */
+      font-weight: bold;
+      font-size: 1.2em;
+      line-height: 1.2;
+    }
+
+    /* 技术关键词加粗高亮 */
+    .tech-highlight {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-right: 0.25rem;
+    }
+
+    /* 底部链接区域 */
     .project-links {
       display: flex;
       gap: 1rem;
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.05); /* 极淡的分隔线 */
     }
 
-    .project-links a {
+    .project-link-item {
       color: var(--primary-color);
       text-decoration: none;
       font-size: 0.9rem;
-      transition: color 0.3s;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
-    .project-links a:hover {
+    .project-link-item:hover {
       color: var(--hover-color);
+      text-decoration: underline;
+    }
+    
+    /* 链接图标微调 */
+    .project-link-item svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
     }
 
     /* 工作经历 */
@@ -278,7 +390,7 @@
 
     .experience-item h3 {
       color: var(--primary-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
       font-size: 1.3rem;
     }
 
@@ -390,6 +502,11 @@
       main {
         padding: 1rem;
       }
+      
+      .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     /* 滚动动画 */
@@ -422,11 +539,16 @@
     <div class="nav-container">
       <div class="logo">Yaowu Zhang</div>
       <ul class="nav-links">
-        <li><a href="#about">关于我</a></li>
-        <li><a href="#skills">技能</a></li>
-        <li><a href="#projects">项目</a></li>
-        <li><a href="#experience">工作经历</a></li>
-        <li><a href="#contact">联系</a></li>
+        <li><a href="#about" data-i18n="nav_about">关于我</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">技能</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">项目</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">工作经历</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">联系</a></li>
+        <li>
+          <button id="langToggle" class="lang-switch-btn" aria-label="Switch Language">
+            🌐 <span id="langText">EN</span>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
@@ -436,30 +558,32 @@
     <div class="container">
       <!-- Hero 区域 -->
       <section class="hero">
-        <h1>👋 你好，我是 Yaowu Zhang</h1>
-        <p class="subtitle">程序员 | 技术爱好者</p>
-        <p>欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。</p>
+        <h1 data-i18n="hero_title">你好！我是张耀午</h1>
+        <p class="subtitle" data-i18n="hero_subtitle">程序员 | 技术爱好者</p>
+        <p data-i18n="hero_desc">欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。</p>
       </section>
 
       <!-- 关于我 -->
       <section id="about" class="card">
-        <h2>📖 关于我</h2>
+        <h2 data-i18n="section_about">关于我</h2>
         <div class="about-content">
           <div class="avatar">
+            <!-- 注意：请确保图片路径正确，如果图片不存在会显示_alt_文字 -->
             <img src="241768207359_.pic.jpg" alt="Yaowu Zhang">
           </div>
           <div class="about-text">
-            <p>我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。</p>
-            <p>在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。</p>
-            <p>这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。</p>
+            <p data-i18n="about_p1">我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。</p>
+            <p data-i18n="about_p2">在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。</p>
+            <p data-i18n="about_p3">这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。</p>
           </div>
         </div>
       </section>
 
       <!-- 技能 -->
       <section id="skills" class="card">
-        <h2>🛠️ 技能栈</h2>
+        <h2 data-i18n="section_skills">技能栈</h2>
         <div class="skills-grid">
+          <!-- 技能通常不需要翻译，保持英文即可，如果需要也可以加 data-i18n -->
           <div class="skill-tag">JavaScript</div>
           <div class="skill-tag">TypeScript</div>
           <div class="skill-tag">React</div>
@@ -475,83 +599,169 @@
 
       <!-- 项目 -->
       <section id="projects" class="card">
-        <h2>💼 项目展示</h2>
+        <h2 data-i18n="section_projects">项目经历</h2>
         <div class="projects-grid">
+          
+          <!-- 项目 1: AI 旅游客服智能体 -->
           <div class="project-card">
-            <h3>项目名称 1</h3>
-            <p>这是一个项目的简短描述，展示了项目的核心功能和特点。使用了一些先进的技术栈。</p>
+            <div class="project-header">
+              <h3 data-i18n="proj1_title">AI 旅游客服智能体</h3>
+              <span class="project-role" data-i18n="proj1_role">全栈开发 | 布里斯托</span>
+              <span class="project-meta">2025/05 - 2025/09</span>
+            </div>
+            
+            <p class="project-desc" data-i18n="proj1_desc">
+              基于 <strong>Spring Boot + Spring AI</strong> 的 AI 旅游规划智能体，实现意图识别、任务拆解及自主工具调用。
+            </p>
+            
+            <ul class="project-details">
+              <li>
+                <span class="tech-highlight" data-i18n="proj1_tag1">RAG 增强</span>
+                <span data-i18n="proj1_detail1">自定义 VectorStore 结合 PGvector，将回答准确率从 45% 提升至 85%+。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj1_tag2">多轮对话</span>
+                <span data-i18n="proj1_detail2">利用 ChatMemory 实现上下文记忆，保持语境连贯。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj1_tag3">工具调用</span>
+                <span data-i18n="proj1_detail3">集成文件操作、联网搜索、PDF 生成等 6 种工具，扩展 AI 能力边界。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj1_tag4">幻觉优化</span>
+                <span data-i18n="proj1_detail4">引入 RAGAS 评估引擎，使 GPT-4-Turbo 事实性幻觉率降低 72.6%。</span>
+              </li>
+            </ul>
+            
             <div class="project-links">
-              <a href="#" target="_blank">🔗 在线预览</a>
-              <a href="https://github.com/Napoleon1Zhang" target="_blank">📦 GitHub</a>
+              <a href="#" target="_blank" class="project-link-item" data-i18n="link_preview">
+                🔗 <span>在线预览</span>
+              </a>
+              <a href="https://github.com/Napoleon1Zhang" target="_blank" class="project-link-item" data-i18n="link_github">
+                📦 <span>GitHub</span>
+              </a>
             </div>
           </div>
+
+          <!-- 项目 2: 智绘云图库 -->
           <div class="project-card">
-            <h3>项目名称 2</h3>
-            <p>这是另一个项目的描述，展示了不同的技术应用场景和解决方案。</p>
+            <div class="project-header">
+              <h3 data-i18n="proj2_title">智绘云图库</h3>
+              <span class="project-role" data-i18n="proj2_role">全栈开发 | 布里斯托</span>
+              <span class="project-meta">2025/01 - 2025/03</span>
+            </div>
+            
+            <p class="project-desc" data-i18n="proj2_desc">
+              企业级智能协同云图库平台，包含公共/私有/团队共享三大核心模块。
+            </p>
+            
+            <ul class="project-details">
+              <li>
+                <span class="tech-highlight" data-i18n="proj2_tag1">分布式会话</span>
+                <span data-i18n="proj2_detail1">基于 Redis + Spring Session 实现单点登录，响应时间 &lt; 200ms。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj2_tag2">以图搜图</span>
+                <span data-i18n="proj2_detail2">调用百度 API 并结合 Jsoup 解析，运用门面模式优化接口调用。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj2_tag3">协作编辑</span>
+                <span data-i18n="proj2_detail3">基于 WebSocket + 事件驱动实现多人协作，设计“编辑锁”避免冲突。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj2_tag4">全局请求封装</span>
+                <span data-i18n="proj2_detail4">自定义 Axios 实例与拦截器，统一处理多环境 API 调用。</span>
+              </li>
+            </ul>
+            
             <div class="project-links">
-              <a href="#" target="_blank">🔗 在线预览</a>
-              <a href="https://github.com/Napoleon1Zhang" target="_blank">📦 GitHub</a>
+              <!-- 如果没有在线预览，可以只放 GitHub -->
+              <a href="https://github.com/Napoleon1Zhang" target="_blank" class="project-link-item" data-i18n="link_github">
+                📦 <span>GitHub</span>
+              </a>
             </div>
           </div>
+
+          <!-- 项目 3: 布布交友平台 -->
           <div class="project-card">
-            <h3>项目名称 3</h3>
-            <p>第三个项目展示了更多的技术实践和创新想法。</p>
+            <div class="project-header">
+              <h3 data-i18n="proj3_title">布布交友平台</h3>
+              <span class="project-role" data-i18n="proj3_role">全栈开发 | 无锡</span>
+              <span class="project-meta">2022/02 - 2022/03</span>
+            </div>
+            
+            <p class="project-desc" data-i18n="proj3_desc">
+              基于 <strong>Vue3 + Spring Boot 2</strong> 的移动端社交平台，核心实现用户检索、相似推荐及组队功能。
+            </p>
+            
+            <ul class="project-details">
+              <li>
+                <span class="tech-highlight" data-i18n="proj3_tag1">并发控制</span>
+                <span data-i18n="proj3_detail1">采用 Redisson 分布式锁解决高并发下的重复入队与超员问题。</span>
+              </li>
+              <li>
+                <span class="tech-highlight" data-i18n="proj3_tag2">算法优化</span>
+                <span data-i18n="proj3_detail2">应用编辑距离算法结合优先队列，优化标签匹配逻辑，提升推荐精准度。</span>
+              </li>
+            </ul>
+            
             <div class="project-links">
-              <a href="#" target="_blank">🔗 在线预览</a>
-              <a href="https://github.com/Napoleon1Zhang" target="_blank">📦 GitHub</a>
+              <a href="https://github.com/Napoleon1Zhang" target="_blank" class="project-link-item" data-i18n="link_github">
+                📦 <span>GitHub</span>
+              </a>
             </div>
           </div>
+
         </div>
       </section>
-
       <!-- 工作经历 -->
       <section id="experience" class="card">
-        <h2>💼 工作经历</h2>
+        <h2 data-i18n="section_experience">工作经历</h2>
         <ul class="experience-list">
           <li class="experience-item">
             <div class="experience-header">
               <div>
-                <h3>职位名称</h3>
-                <div class="experience-company">公司名称</div>
+                <h3 data-i18n="exp1_title">职位名称</h3>
+                <div class="experience-company" data-i18n="exp1_company">公司名称</div>
               </div>
-              <div class="experience-period">2022年1月 - 至今</div>
+              <div class="experience-period" data-i18n="exp1_time">2022年1月 - 至今</div>
             </div>
-            <p>工作描述：在这里描述你的主要工作职责和成就...</p>
+            <p data-i18n="exp1_desc">工作描述：在这里描述你的主要工作职责和成就...</p>
             <ul class="experience-duties">
-              <li>负责核心业务模块的开发和维护</li>
-              <li>参与技术架构设计和优化</li>
-              <li>指导团队成员进行代码审查和技术分享</li>
-              <li>优化系统性能，提升用户体验</li>
+              <li data-i18n="exp1_duty1">负责核心业务模块的开发和维护</li>
+              <li data-i18n="exp1_duty2">参与技术架构设计和优化</li>
+              <li data-i18n="exp1_duty3">指导团队成员进行代码审查和技术分享</li>
+              <li data-i18n="exp1_duty4">优化系统性能，提升用户体验</li>
             </ul>
           </li>
           <li class="experience-item">
             <div class="experience-header">
               <div>
-                <h3>职位名称</h3>
-                <div class="experience-company">公司名称</div>
+                <h3 data-i18n="exp2_title">职位名称</h3>
+                <div class="experience-company" data-i18n="exp2_company">公司名称</div>
               </div>
-              <div class="experience-period">2020年6月 - 2021年12月</div>
+              <div class="experience-period" data-i18n="exp2_time">2020年6月 - 2021年12月</div>
             </div>
-            <p>工作描述：在这里描述你的主要工作职责和成就...</p>
+            <p data-i18n="exp2_desc">工作描述：在这里描述你的主要工作职责和成就...</p>
             <ul class="experience-duties">
-              <li>参与产品需求分析和技术方案设计</li>
-              <li>开发高质量的前端/后端代码</li>
-              <li>与产品、设计团队协作完成项目交付</li>
+              <li data-i18n="exp2_duty1">参与产品需求分析和技术方案设计</li>
+              <li data-i18n="exp2_duty2">开发高质量的前端/后端代码</li>
+              <li data-i18n="exp2_duty3">与产品、设计团队协作完成项目交付</li>
             </ul>
           </li>
           <li class="experience-item">
             <div class="experience-header">
               <div>
-                <h3>职位名称</h3>
-                <div class="experience-company">公司名称</div>
+                <h3 data-i18n="exp3_title">职位名称</h3>
+                <div class="experience-company" data-i18n="exp3_company">公司名称</div>
               </div>
-              <div class="experience-period">2018年7月 - 2020年5月</div>
+              <div class="experience-period" data-i18n="exp3_time">2018年7月 - 2020年5月</div>
             </div>
-            <p>工作描述：在这里描述你的主要工作职责和成就...</p>
+            <p data-i18n="exp3_desc">工作描述：在这里描述你的主要工作职责和成就...</p>
             <ul class="experience-duties">
-              <li>参与公司核心产品的开发工作</li>
-              <li>学习并应用新技术解决业务问题</li>
-              <li>参与代码重构和性能优化工作</li>
+              <li data-i18n="exp3_duty1">参与公司核心产品的开发工作</li>
+              <li data-i18n="exp3_duty2">学习并应用新技术解决业务问题</li>
+              <li data-i18n="exp3_duty3">参与代码重构和性能优化工作</li>
             </ul>
           </li>
         </ul>
@@ -559,37 +769,194 @@
 
       <!-- 联系方式 -->
       <section id="contact" class="card">
-        <h2>📮 联系方式</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">欢迎通过以下方式与我联系：</p>
+        <h2 data-i18n="section_contact">联系方式</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1rem;" data-i18n="contact_intro">欢迎通过以下方式与我联系：</p>
         <div class="contact-links">
           <a href="https://github.com/Napoleon1Zhang" target="_blank" class="contact-link">
-            <span>🐙</span>
             <span>GitHub</span>
           </a>
-          <a href="mailto:your-email@example.com" class="contact-link">
-            <span>📧</span>
+          <a href="mailto:yaowu1056123525@gmail.com" class="contact-link">
             <span>Email</span>
           </a>
-          <a href="#" class="contact-link">
-            <span>💼</span>
+          <a href="https://www.linkedin.com/in/yaowu-zhang-a24106302/" class="contact-link">
             <span>LinkedIn</span>
-          </a>
-          <a href="#" class="contact-link">
-            <span>🐦</span>
-            <span>Twitter</span>
           </a>
         </div>
       </section>
-    </div>
+  </div>
   </main>
 
   <!-- 页脚 -->
   <footer>
     <p>&copy; 2024 Yaowu Zhang. All rights reserved.</p>
-    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Built with ❤️ using HTML & CSS</p>
+    <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-i18n="footer_credit">Built with using HTML & CSS</p>
   </footer>
 
   <script>
+    // 语言包配置
+    const translations = {
+      zh: {
+        nav_about: "关于我",
+        nav_skills: "技能",
+        nav_projects: "项目",
+        nav_experience: "工作经历",
+        nav_contact: "联系",
+        hero_title: "你好！我是张耀午",
+        hero_subtitle: "程序员 | 技术爱好者",
+        hero_desc: "欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。",
+        section_about: "关于我",
+        about_p1: "我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。",
+        about_p2: "在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。",
+        about_p3: "这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。",
+        section_skills: "技能栈",
+        section_projects: "项目经历",
+        proj1_title: "AI 旅游客服智能体",
+        proj1_role: "全栈开发 | 布里斯托",
+        proj1_desc: "基于 <strong>Spring Boot + Spring AI</strong> 的 AI 旅游规划智能体，实现意图识别、任务拆解及自主工具调用。",
+        proj1_tag1: "RAG 增强",
+        proj1_detail1: "自定义 VectorStore 结合 PGvector，将回答准确率从 45% 提升至 85%+。",
+        proj1_tag2: "多轮对话",
+        proj1_detail2: "利用 ChatMemory 实现上下文记忆，保持语境连贯。",
+        proj1_tag3: "工具调用",
+        proj1_detail3: "集成文件操作、联网搜索、PDF 生成等 6 种工具，扩展 AI 能力边界。",
+        proj1_tag4: "幻觉优化",
+        proj1_detail4: "引入 RAGAS 评估引擎，使 GPT-4-Turbo 事实性幻觉率降低 72.6%。",
+        
+        proj2_title: "智绘云图库",
+        proj2_role: "全栈开发 | 布里斯托",
+        proj2_desc: "企业级智能协同云图库平台，包含公共/私有/团队共享三大核心模块。",
+        proj2_tag1: "分布式会话",
+        proj2_detail1: "基于 Redis + Spring Session 实现单点登录，响应时间 &lt; 200ms。",
+        proj2_tag2: "以图搜图",
+        proj2_detail2: "调用百度 API 并结合 Jsoup 解析，运用门面模式优化接口调用。",
+        proj2_tag3: "协作编辑",
+        proj2_detail3: "基于 WebSocket + 事件驱动实现多人协作，设计“编辑锁”避免冲突。",
+        proj2_tag4: "全局请求封装",
+        proj2_detail4: "自定义 Axios 实例与拦截器，统一处理多环境 API 调用。",
+
+        proj3_title: "布布交友平台",
+        proj3_role: "全栈开发 | 无锡",
+        proj3_desc: "基于 <strong>Vue3 + Spring Boot 2</strong> 的移动端社交平台，核心实现用户检索、相似推荐及组队功能。",
+        proj3_tag1: "并发控制",
+        proj3_detail1: "采用 Redisson 分布式锁解决高并发下的重复入队与超员问题。",
+        proj3_tag2: "算法优化",
+        proj3_detail2: "应用编辑距离算法结合优先队列，优化标签匹配逻辑，提升推荐精准度。",
+
+        link_preview: "在线预览",
+        link_github: "GitHub",
+
+        section_experience: "工作经历",
+        exp1_title: "高级软件工程师",
+        exp1_company: "某知名科技公司",
+        exp1_time: "2022年1月 - 至今",
+        exp1_desc: "主要负责核心业务系统的架构设计与开发，带领团队攻克技术难点。",
+        exp1_duty1: "负责核心业务模块的开发和维护",
+        exp1_duty2: "参与技术架构设计和优化",
+        exp1_duty3: "指导团队成员进行代码审查和技术分享",
+        exp1_duty4: "优化系统性能，提升用户体验",
+
+        exp2_title: "软件工程师",
+        exp2_company: "某创新互联网公司",
+        exp2_time: "2020年6月 - 2021年12月",
+        exp2_desc: "参与多款产品的从0到1开发，负责后端服务搭建及前端页面实现。",
+        exp2_duty1: "参与产品需求分析和技术方案设计",
+        exp2_duty2: "开发高质量的前端/后端代码",
+        exp2_duty3: "与产品、设计团队协作完成项目交付",
+
+        exp3_title: "初级开发工程师",
+        exp3_company: "某初创企业",
+        exp3_time: "2018年7月 - 2020年5月",
+        exp3_desc: "快速学习技术栈，独立完成多个小型模块的开发任务。",
+        exp3_duty1: "参与公司核心产品的开发工作",
+        exp3_duty2: "学习并应用新技术解决业务问题",
+        exp3_duty3: "参与代码重构和性能优化工作",
+
+        section_contact: "联系方式",
+        contact_intro: "欢迎通过以下方式与我联系：",
+        footer_credit: "Built with using HTML & CSS"
+      },
+      en: {
+        nav_about: "About Me",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_experience: "Experience",
+        nav_contact: "Contact",
+        hero_title: "Hello! I'm Yaowu Zhang",
+        hero_subtitle: "Programmer | Tech Enthusiast",
+        hero_desc: "Welcome to my personal blog, where I record my technical learning, project experiences, and thoughts.",
+        section_about: "About Me",
+        about_p1: "I am a passionate programmer focused on software development and technical innovation. I love exploring new technologies, solving real-world problems, and creating value through code.",
+        about_p2: "On my coding journey, I always maintain a learning mindset, believing that technology can change the world. Besides coding, I enjoy sharing knowledge and helping others grow.",
+        about_p3: "This blog is a platform for me to record my learning journey and share technical insights, hoping to connect with more like-minded friends.",
+        section_skills: "Tech Stack",
+        section_projects: "Project Experience",
+        proj1_title: "AI Travel Customer Service Agent",
+        proj1_role: "Full Stack Dev | Bristol",
+        proj1_desc: "An AI travel planning agent based on <strong>Spring Boot + Spring AI</strong>, implementing intent recognition, task decomposition, and autonomous tool invocation.",
+        proj1_tag1: "RAG Enhancement",
+        proj1_detail1: "Custom VectorStore combined with PGvector, improving answer accuracy from 45% to over 85%.",
+        proj1_tag2: "Multi-turn Dialogue",
+        proj1_detail2: "Utilized ChatMemory for context retention, ensuring coherent conversations.",
+        proj1_tag3: "Tool Invocation",
+        proj1_detail3: "Integrated 6 tools including file operations, web search, and PDF generation to extend AI capabilities.",
+        proj1_tag4: "Hallucination Optimization",
+        proj1_detail4: "Introduced RAGAS evaluation engine, reducing GPT-4-Turbo factual hallucination rate by 72.6%.",
+
+        proj2_title: "Smart Cloud Image Gallery",
+        proj2_role: "Full Stack Dev | Bristol",
+        proj2_desc: "Enterprise-level intelligent collaborative cloud gallery platform, featuring public, private, and team sharing modules.",
+        proj2_tag1: "Distributed Session",
+        proj2_detail1: "Implemented SSO based on Redis + Spring Session with response time &lt; 200ms.",
+        proj2_tag2: "Image Search",
+        proj2_detail2: "Called Baidu API combined with Jsoup parsing, using Facade pattern to optimize interface calls.",
+        proj2_tag3: "Collaborative Editing",
+        proj2_detail3: "Achieved multi-user collaboration via WebSocket + event-driven architecture, designing 'edit locks' to prevent conflicts.",
+        proj2_tag4: "Global Request Encapsulation",
+        proj2_detail4: "Custom Axios instances and interceptors to unify multi-environment API calls.",
+
+        proj3_title: "Bubu Dating Platform",
+        proj3_role: "Full Stack Dev | Wuxi",
+        proj3_desc: "Mobile social platform based on <strong>Vue3 + Spring Boot 2</strong>, core features include user search, similarity recommendation, and team formation.",
+        proj3_tag1: "Concurrency Control",
+        proj3_detail1: "Used Redisson distributed locks to solve duplicate queuing and over-capacity issues under high concurrency.",
+        proj3_tag2: "Algorithm Optimization",
+        proj3_detail2: "Applied Levenshtein distance algorithm with priority queues to optimize tag matching logic and improve recommendation accuracy.",
+
+        link_preview: "Live Preview",
+        link_github: "GitHub",
+
+        section_experience: "Work Experience",
+        exp1_title: "Senior Software Engineer",
+        exp1_company: "Top Tech Company",
+        exp1_time: "Jan 2022 - Present",
+        exp1_desc: "Mainly responsible for architecture design and development of core business systems, leading the team to overcome technical challenges.",
+        exp1_duty1: "Responsible for development and maintenance of core business modules",
+        exp1_duty2: "Participated in technical architecture design and optimization",
+        exp1_duty3: "Guided team members in code review and technical sharing",
+        exp1_duty4: "Optimized system performance and improved user experience",
+
+        exp2_title: "Software Engineer",
+        exp2_company: "Innovative Internet Company",
+        exp2_time: "Jun 2020 - Dec 2021",
+        exp2_desc: "Participated in 0-to-1 development of multiple products, responsible for backend service setup and frontend implementation.",
+        exp2_duty1: "Participated in product requirement analysis and technical solution design",
+        exp2_duty2: "Developed high-quality frontend/backend code",
+        exp2_duty3: "Collaborated with product and design teams to complete project delivery",
+
+        exp3_title: "Junior Developer",
+        exp3_company: "Startup Company",
+        exp3_time: "Jul 2018 - May 2020",
+        exp3_desc: "Rapidly learned tech stacks and independently completed development tasks for several small modules.",
+        exp3_duty1: "Participated in the development of core company products",
+        exp3_duty2: "Learned and applied new technologies to solve business problems",
+        exp3_duty3: "Participated in code refactoring and performance optimization",
+
+        section_contact: "Contact",
+        contact_intro: "Feel free to contact me via the following methods:",
+        footer_credit: "Built with using HTML & CSS"
+      }
+    };
+
     // 平滑滚动
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
@@ -616,6 +983,48 @@
       }
       lastScroll = currentScroll;
     });
+
+    // 语言切换逻辑
+    const langToggleBtn = document.getElementById('langToggle');
+    const langTextSpan = document.getElementById('langText');
+    
+    // 获取当前语言，默认为中文，或从 localStorage 读取
+    let currentLang = localStorage.getItem('preferredLang') || 'zh';
+
+    function updateLanguage(lang) {
+      // 更新按钮文字
+      langTextSpan.textContent = lang === 'zh' ? 'EN' : '中文';
+      
+      // 更新所有带有 data-i18n 属性的元素
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          // 如果内容包含 HTML 标签（如 strong），使用 innerHTML
+          if (translations[lang][key].includes('<')) {
+            element.innerHTML = translations[lang][key];
+          } else {
+            element.textContent = translations[lang][key];
+          }
+        }
+      });
+
+      // 保存偏好
+      localStorage.setItem('preferredLang', lang);
+      currentLang = lang;
+      
+      // 更新 html lang 属性
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    }
+
+    // 初始化语言
+    updateLanguage(currentLang);
+
+    // 绑定点击事件
+    langToggleBtn.addEventListener('click', () => {
+      const newLang = currentLang === 'zh' ? 'en' : 'zh';
+      updateLanguage(newLang);
+    });
+
   </script>
 </body>
 </html>
