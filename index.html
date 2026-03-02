@@ -279,13 +279,12 @@
     .project-details {
       list-style: none;
       margin-bottom: 1.5rem;
-      flex-grow: 1; /* 让列表占据剩余空间，把链接推到底部 */
+      flex-grow: 1;
       display: flex;
       flex-direction: column;
-      gap: 1rem; /* 每个技术点之间的间距 */
+      gap: 1rem;
     }
 
-    /* 技术点列表 - 极简风格 */
     .project-details {
       list-style: none;
       padding: 0;
@@ -293,44 +292,41 @@
       flex-grow: 1;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem; /* 列表项之间的间距 */
+      gap: 0.75rem;
     }
 
     .project-details li {
       position: relative;
-      padding-left: 1.2rem; /* 给圆点留出空间 */
+      padding-left: 1.2rem;
       color: var(--text-secondary);
       font-size: 0.9rem;
       line-height: 1.6;
       text-align: left;
     }
 
-    /* 自定义圆点 */
     .project-details li::before {
       content: "•";
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--primary-color); /* 圆点颜色 */
+      color: var(--primary-color);
       font-weight: bold;
       font-size: 1.2em;
       line-height: 1.2;
     }
 
-    /* 技术关键词加粗高亮 */
     .tech-highlight {
       font-weight: 700;
       color: var(--text-primary);
       margin-right: 0.25rem;
     }
 
-    /* 底部链接区域 */
     .project-links {
       display: flex;
       gap: 1rem;
       margin-top: auto;
       padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.05); /* 极淡的分隔线 */
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
 
     .project-link-item {
@@ -348,7 +344,6 @@
       text-decoration: underline;
     }
     
-    /* 链接图标微调 */
     .project-link-item svg {
       width: 14px;
       height: 14px;
@@ -525,7 +520,6 @@
       animation: fadeInUp 0.6s ease-out;
     }
 
-    /* 图标样式 */
     .icon {
       display: inline-block;
       width: 1.2em;
@@ -542,7 +536,7 @@
         <li><a href="#about" data-i18n="nav_about">关于我</a></li>
         <li><a href="#skills" data-i18n="nav_skills">技能</a></li>
         <li><a href="#projects" data-i18n="nav_projects">项目</a></li>
-        <li><a href="#experience" data-i18n="nav_experience">工作经历</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">实习经历</a></li>
         <li><a href="#contact" data-i18n="nav_contact">联系</a></li>
         <li>
           <button id="langToggle" class="lang-switch-btn" aria-label="Switch Language">
@@ -559,7 +553,7 @@
       <!-- Hero 区域 -->
       <section class="hero">
         <h1 data-i18n="hero_title">你好！我是张耀午</h1>
-        <p class="subtitle" data-i18n="hero_subtitle">程序员 | 技术爱好者</p>
+        <p class="subtitle" data-i18n="hero_subtitle">全栈开发工程师 | 数据科学硕士</p>
         <p data-i18n="hero_desc">欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。</p>
       </section>
 
@@ -568,12 +562,11 @@
         <h2 data-i18n="section_about">关于我</h2>
         <div class="about-content">
           <div class="avatar">
-            <!-- 注意：请确保图片路径正确，如果图片不存在会显示_alt_文字 -->
             <img src="241768207359_.pic.jpg" alt="Yaowu Zhang">
           </div>
           <div class="about-text">
-            <p data-i18n="about_p1">我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。</p>
-            <p data-i18n="about_p2">在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。</p>
+            <p data-i18n="about_p1">我是一名充满热情的全栈开发工程师，专注于软件开发、AI 应用落地和技术创新。拥有英国布里斯托大学数据科学硕士背景，喜欢探索新技术，解决实际问题。</p>
+            <p data-i18n="about_p2">在编程的道路上，我始终保持学习的心态，具备扎实的后端（Java/Node.js）与前端（Vue/React）能力，并深入实践 RAG、AI Agent 等前沿技术。</p>
             <p data-i18n="about_p3">这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。</p>
           </div>
         </div>
@@ -583,17 +576,16 @@
       <section id="skills" class="card">
         <h2 data-i18n="section_skills">技能栈</h2>
         <div class="skills-grid">
-          <!-- 技能通常不需要翻译，保持英文即可，如果需要也可以加 data-i18n -->
-          <div class="skill-tag">JavaScript</div>
-          <div class="skill-tag">TypeScript</div>
-          <div class="skill-tag">React</div>
-          <div class="skill-tag">Vue.js</div>
-          <div class="skill-tag">Node.js</div>
-          <div class="skill-tag">Python</div>
           <div class="skill-tag">Java</div>
-          <div class="skill-tag">Git</div>
-          <div class="skill-tag">Docker</div>
-          <div class="skill-tag">Linux</div>
+          <div class="skill-tag">Spring Boot/AI</div>
+          <div class="skill-tag">Node.js</div>
+          <div class="skill-tag">Vue 3</div>
+          <div class="skill-tag">React</div>
+          <div class="skill-tag">MySQL</div>
+          <div class="skill-tag">Redis</div>
+          <div class="skill-tag">RAG & AI Agent</div>
+          <div class="skill-tag">Tableau</div>
+          <div class="skill-tag">Git & Docker</div>
         </div>
       </section>
 
@@ -675,7 +667,6 @@
             </ul>
             
             <div class="project-links">
-              <!-- 如果没有在线预览，可以只放 GitHub -->
               <a href="https://github.com/Napoleon1Zhang" target="_blank" class="project-link-item" data-i18n="link_github">
                 📦 <span>GitHub</span>
               </a>
@@ -714,56 +705,64 @@
 
         </div>
       </section>
-      <!-- 工作经历 -->
+
+      <!-- 实习经历 (已更新) -->
       <section id="experience" class="card">
-        <h2 data-i18n="section_experience">工作经历</h2>
+        <h2 data-i18n="section_experience">实习经历</h2>
         <ul class="experience-list">
+          
+          <!-- 经历 1: 龙讯科技 -->
           <li class="experience-item">
             <div class="experience-header">
               <div>
-                <h3 data-i18n="exp1_title">职位名称</h3>
-                <div class="experience-company" data-i18n="exp1_company">公司名称</div>
+                <h3 data-i18n="exp1_title">前端开发实习生</h3>
+                <div class="experience-company" data-i18n="exp1_company">龙讯科技有限公司</div>
               </div>
-              <div class="experience-period" data-i18n="exp1_time">2022年1月 - 至今</div>
+              <div class="experience-period" data-i18n="exp1_time">2023/05 - 2023/08</div>
             </div>
-            <p data-i18n="exp1_desc">工作描述：在这里描述你的主要工作职责和成就...</p>
+            <p data-i18n="exp1_desc">负责六安市金安政务办公云平台（政务内网 OA）的前端架构与开发，支撑日均 2000+ 次文件流转。</p>
             <ul class="experience-duties">
-              <li data-i18n="exp1_duty1">负责核心业务模块的开发和维护</li>
-              <li data-i18n="exp1_duty2">参与技术架构设计和优化</li>
-              <li data-i18n="exp1_duty3">指导团队成员进行代码审查和技术分享</li>
-              <li data-i18n="exp1_duty4">优化系统性能，提升用户体验</li>
+              <li data-i18n="exp1_duty1">主导协同云文件平台前端开发，实现文件公开检索、私有空间批量管理及多维筛选功能。</li>
+              <li data-i18n="exp1_duty2">封装全局权限管理模块，通过 Vue Router 守卫集中校验页面权限，简化使用流程。</li>
+              <li data-i18n="exp1_duty3">实施“压缩 + 懒加载 + 缩略图”策略优化大文件场景，显著提升页面加载速度。</li>
+              <li data-i18n="exp1_duty4">基于业务配置表利用 addRoute 动态挂载路由，实现海量文件详情页的自动渲染。</li>
             </ul>
           </li>
+
+          <!-- 经历 2: 安徽商报 -->
           <li class="experience-item">
             <div class="experience-header">
               <div>
-                <h3 data-i18n="exp2_title">职位名称</h3>
-                <div class="experience-company" data-i18n="exp2_company">公司名称</div>
+                <h3 data-i18n="exp2_title">运行维护实习生</h3>
+                <div class="experience-company" data-i18n="exp2_company">安徽商报</div>
               </div>
-              <div class="experience-period" data-i18n="exp2_time">2020年6月 - 2021年12月</div>
+              <div class="experience-period" data-i18n="exp2_time">2022/06 - 2022/08</div>
             </div>
-            <p data-i18n="exp2_desc">工作描述：在这里描述你的主要工作职责和成就...</p>
+            <p data-i18n="exp2_desc">负责新闻网站及发布系统的全天候巡检监控，主导构建标准化新闻发布流程，确保内容交付高效安全。</p>
             <ul class="experience-duties">
-              <li data-i18n="exp2_duty1">参与产品需求分析和技术方案设计</li>
-              <li data-i18n="exp2_duty2">开发高质量的前端/后端代码</li>
-              <li data-i18n="exp2_duty3">与产品、设计团队协作完成项目交付</li>
+              <li data-i18n="exp2_duty1">严格执行“编辑 - 审核 - 发布”三级校验机制，经手发布的 28 条新闻保持 100% 准确率。</li>
+              <li data-i18n="exp2_duty2">负责每日稿件的敏感词筛查与格式校验，有效规避舆情风险。</li>
+              <li data-i18n="exp2_duty3">担任技术部与编辑部沟通枢纽，快速响应突发系统故障，保障新闻时效性。</li>
             </ul>
           </li>
+
+          <!-- 经历 3: UK Education Centre -->
           <li class="experience-item">
             <div class="experience-header">
               <div>
-                <h3 data-i18n="exp3_title">职位名称</h3>
-                <div class="experience-company" data-i18n="exp3_company">公司名称</div>
+                <h3 data-i18n="exp3_title">产品销售助理实习生</h3>
+                <div class="experience-company" data-i18n="exp3_company">United Kingdom Education Centre</div>
               </div>
-              <div class="experience-period" data-i18n="exp3_time">2018年7月 - 2020年5月</div>
+              <div class="experience-period" data-i18n="exp3_time">2024/02 - 2024/06</div>
             </div>
-            <p data-i18n="exp3_desc">工作描述：在这里描述你的主要工作职责和成就...</p>
+            <p data-i18n="exp3_desc">负责英国格拉斯哥区域教育服务市场的定量调研，制定差异化本地化推广策略，为业务增长提供数据支撑。</p>
             <ul class="experience-duties">
-              <li data-i18n="exp3_duty1">参与公司核心产品的开发工作</li>
-              <li data-i18n="exp3_duty2">学习并应用新技术解决业务问题</li>
-              <li data-i18n="exp3_duty3">参与代码重构和性能优化工作</li>
+              <li data-i18n="exp3_duty1">通过“线下地推 + 专题教育展”策略开拓西苏格兰大学全境市场，触达核心人群 1,500+ 人次。</li>
+              <li data-i18n="exp3_duty2">参与曼彻斯特大型教育展览运营与引流，显著提升潜在客户转化率与品牌曝光度。</li>
+              <li data-i18n="exp3_duty3">作为核心联络人对接多所英国高校管理层，建立长期稳定的合作伙伴关系。</li>
             </ul>
           </li>
+
         </ul>
       </section>
 
@@ -777,6 +776,9 @@
           </a>
           <a href="mailto:yaowu1056123525@gmail.com" class="contact-link">
             <span>Email</span>
+          </a>
+          <a href="tel:18155120727" class="contact-link">
+            <span>Phone: 18155120727</span>
           </a>
           <a href="https://www.linkedin.com/in/yaowu-zhang-a24106302/" class="contact-link">
             <span>LinkedIn</span>
@@ -799,14 +801,14 @@
         nav_about: "关于我",
         nav_skills: "技能",
         nav_projects: "项目",
-        nav_experience: "工作经历",
+        nav_experience: "实习经历",
         nav_contact: "联系",
         hero_title: "你好！我是张耀午",
-        hero_subtitle: "程序员 | 技术爱好者",
+        hero_subtitle: "全栈开发工程师 | 数据科学硕士",
         hero_desc: "欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。",
         section_about: "关于我",
-        about_p1: "我是一名充满热情的程序员，专注于软件开发和技术创新。喜欢探索新技术，解决实际问题，并通过代码创造价值。",
-        about_p2: "在编程的道路上，我始终保持学习的心态，相信技术可以改变世界。除了编码，我也喜欢分享知识，帮助他人成长。",
+        about_p1: "我是一名充满热情的全栈开发工程师，专注于软件开发、AI 应用落地和技术创新。拥有英国布里斯托大学数据科学硕士背景，喜欢探索新技术，解决实际问题。",
+        about_p2: "在编程的道路上，我始终保持学习的心态，具备扎实的后端（Java/Node.js）与前端（Vue/React）能力，并深入实践 RAG、AI Agent 等前沿技术。",
         about_p3: "这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。",
         section_skills: "技能栈",
         section_projects: "项目经历",
@@ -845,31 +847,35 @@
         link_preview: "在线预览",
         link_github: "GitHub",
 
-        section_experience: "工作经历",
-        exp1_title: "高级软件工程师",
-        exp1_company: "某知名科技公司",
-        exp1_time: "2022年1月 - 至今",
-        exp1_desc: "主要负责核心业务系统的架构设计与开发，带领团队攻克技术难点。",
-        exp1_duty1: "负责核心业务模块的开发和维护",
-        exp1_duty2: "参与技术架构设计和优化",
-        exp1_duty3: "指导团队成员进行代码审查和技术分享",
-        exp1_duty4: "优化系统性能，提升用户体验",
+        section_experience: "实习经历",
+        
+        // 龙讯科技
+        exp1_title: "前端开发实习生",
+        exp1_company: "龙讯科技有限公司",
+        exp1_time: "2023/05 - 2023/08",
+        exp1_desc: "负责六安市金安政务办公云平台（政务内网 OA）的前端架构与开发，支撑日均 2000+ 次文件流转。",
+        exp1_duty1: "主导协同云文件平台前端开发，实现文件公开检索、私有空间批量管理及多维筛选功能。",
+        exp1_duty2: "封装全局权限管理模块，通过 Vue Router 守卫集中校验页面权限，简化使用流程。",
+        exp1_duty3: "实施“压缩 + 懒加载 + 缩略图”策略优化大文件场景，显著提升页面加载速度。",
+        exp1_duty4: "基于业务配置表利用 addRoute 动态挂载路由，实现海量文件详情页的自动渲染。",
 
-        exp2_title: "软件工程师",
-        exp2_company: "某创新互联网公司",
-        exp2_time: "2020年6月 - 2021年12月",
-        exp2_desc: "参与多款产品的从0到1开发，负责后端服务搭建及前端页面实现。",
-        exp2_duty1: "参与产品需求分析和技术方案设计",
-        exp2_duty2: "开发高质量的前端/后端代码",
-        exp2_duty3: "与产品、设计团队协作完成项目交付",
+        // 安徽商报
+        exp2_title: "运行维护实习生",
+        exp2_company: "安徽商报",
+        exp2_time: "2022/06 - 2022/08",
+        exp2_desc: "负责新闻网站及发布系统的全天候巡检监控，主导构建标准化新闻发布流程，确保内容交付高效安全。",
+        exp2_duty1: "严格执行“编辑 - 审核 - 发布”三级校验机制，经手发布的 28 条新闻保持 100% 准确率。",
+        exp2_duty2: "负责每日稿件的敏感词筛查与格式校验，有效规避舆情风险。",
+        exp2_duty3: "担任技术部与编辑部沟通枢纽，快速响应突发系统故障，保障新闻时效性。",
 
-        exp3_title: "初级开发工程师",
-        exp3_company: "某初创企业",
-        exp3_time: "2018年7月 - 2020年5月",
-        exp3_desc: "快速学习技术栈，独立完成多个小型模块的开发任务。",
-        exp3_duty1: "参与公司核心产品的开发工作",
-        exp3_duty2: "学习并应用新技术解决业务问题",
-        exp3_duty3: "参与代码重构和性能优化工作",
+        // UK Education Centre
+        exp3_title: "产品销售助理实习生",
+        exp3_company: "United Kingdom Education Centre",
+        exp3_time: "2024/02 - 2024/06",
+        exp3_desc: "负责英国格拉斯哥区域教育服务市场的定量调研，制定差异化本地化推广策略，为业务增长提供数据支撑。",
+        exp3_duty1: "通过“线下地推 + 专题教育展”策略开拓西苏格兰大学全境市场，触达核心人群 1,500+ 人次。",
+        exp3_duty2: "参与曼彻斯特大型教育展览运营与引流，显著提升潜在客户转化率与品牌曝光度。",
+        exp3_duty3: "作为核心联络人对接多所英国高校管理层，建立长期稳定的合作伙伴关系。",
 
         section_contact: "联系方式",
         contact_intro: "欢迎通过以下方式与我联系：",
@@ -879,14 +885,14 @@
         nav_about: "About Me",
         nav_skills: "Skills",
         nav_projects: "Projects",
-        nav_experience: "Experience",
+        nav_experience: "Internship Experience",
         nav_contact: "Contact",
         hero_title: "Hello! I'm Yaowu Zhang",
-        hero_subtitle: "Programmer | Tech Enthusiast",
+        hero_subtitle: "Full Stack Developer | MSc Data Science",
         hero_desc: "Welcome to my personal blog, where I record my technical learning, project experiences, and thoughts.",
         section_about: "About Me",
-        about_p1: "I am a passionate programmer focused on software development and technical innovation. I love exploring new technologies, solving real-world problems, and creating value through code.",
-        about_p2: "On my coding journey, I always maintain a learning mindset, believing that technology can change the world. Besides coding, I enjoy sharing knowledge and helping others grow.",
+        about_p1: "I am a passionate Full Stack Developer focused on software development, AI application implementation, and technical innovation. With an MSc in Data Science from the University of Bristol, I love exploring new technologies and solving real-world problems.",
+        about_p2: "On my coding journey, I maintain a learning mindset, possessing solid backend (Java/Node.js) and frontend (Vue/React) capabilities, while deeply practicing cutting-edge technologies like RAG and AI Agents.",
         about_p3: "This blog is a platform for me to record my learning journey and share technical insights, hoping to connect with more like-minded friends.",
         section_skills: "Tech Stack",
         section_projects: "Project Experience",
@@ -925,31 +931,35 @@
         link_preview: "Live Preview",
         link_github: "GitHub",
 
-        section_experience: "Work Experience",
-        exp1_title: "Senior Software Engineer",
-        exp1_company: "Top Tech Company",
-        exp1_time: "Jan 2022 - Present",
-        exp1_desc: "Mainly responsible for architecture design and development of core business systems, leading the team to overcome technical challenges.",
-        exp1_duty1: "Responsible for development and maintenance of core business modules",
-        exp1_duty2: "Participated in technical architecture design and optimization",
-        exp1_duty3: "Guided team members in code review and technical sharing",
-        exp1_duty4: "Optimized system performance and improved user experience",
+        section_experience: "Internship Experience",
+        
+        // Longxun Tech
+        exp1_title: "Frontend Development Intern",
+        exp1_company: "Longxun Technology Co., Ltd.",
+        exp1_time: "May 2023 - Aug 2023",
+        exp1_desc: "Responsible for frontend architecture and development of Lu'an Jin'an Government Office Cloud Platform (Intranet OA), supporting 2000+ daily file transactions.",
+        exp1_duty1: "Led frontend development of collaborative cloud file platform, implementing public file search, private space batch management, and multi-dimensional filtering.",
+        exp1_duty2: "Encapsulated global permission management module, centralizing page permission verification via Vue Router guards to simplify usage.",
+        exp1_duty3: "Implemented 'Compression + Lazy Loading + Thumbnail' strategy for large file scenarios, significantly improving page load speed.",
+        exp1_duty4: "Dynamically mounted routes based on business configuration tables using addRoute, enabling automatic rendering of massive file detail pages.",
 
-        exp2_title: "Software Engineer",
-        exp2_company: "Innovative Internet Company",
-        exp2_time: "Jun 2020 - Dec 2021",
-        exp2_desc: "Participated in 0-to-1 development of multiple products, responsible for backend service setup and frontend implementation.",
-        exp2_duty1: "Participated in product requirement analysis and technical solution design",
-        exp2_duty2: "Developed high-quality frontend/backend code",
-        exp2_duty3: "Collaborated with product and design teams to complete project delivery",
+        // Anhui Commercial Daily
+        exp2_title: "Operations & Maintenance Intern",
+        exp2_company: "Anhui Commercial Daily",
+        exp2_time: "Jun 2022 - Aug 2022",
+        exp2_desc: "Responsible for 24/7 inspection and monitoring of news websites and publishing systems, leading the construction of standardized news publishing processes to ensure efficient and safe content delivery.",
+        exp2_duty1: "Strictly executed the 'Edit-Audit-Publish' three-level verification mechanism, maintaining 100% accuracy for 28 published news items.",
+        exp2_duty2: "Responsible for daily sensitive word screening and format verification of manuscripts, effectively avoiding public opinion risks.",
+        exp2_duty3: "Served as a communication hub between the technical and editorial departments, quickly responding to sudden system failures to ensure news timeliness.",
 
-        exp3_title: "Junior Developer",
-        exp3_company: "Startup Company",
-        exp3_time: "Jul 2018 - May 2020",
-        exp3_desc: "Rapidly learned tech stacks and independently completed development tasks for several small modules.",
-        exp3_duty1: "Participated in the development of core company products",
-        exp3_duty2: "Learned and applied new technologies to solve business problems",
-        exp3_duty3: "Participated in code refactoring and performance optimization",
+        // UK Education Centre
+        exp3_title: "Sales Assistant Intern",
+        exp3_company: "United Kingdom Education Centre",
+        exp3_time: "Feb 2024 - Jun 2024",
+        exp3_desc: "Responsible for quantitative research on the education service market in Glasgow, UK, formulating differentiated localization promotion strategies to provide data support for business growth.",
+        exp3_duty1: "Explored the entire market of the University of the West of Scotland through 'offline promotion + thematic education exhibition' strategies, reaching 1,500+ core target audiences.",
+        exp3_duty2: "Participated in the operation and traffic diversion of the large-scale education exhibition in Manchester, significantly improving potential customer conversion rates and brand exposure.",
+        exp3_duty3: "As a core liaison, connected with management layers of multiple UK universities to establish long-term stable cooperative partnerships.",
 
         section_contact: "Contact",
         contact_intro: "Feel free to contact me via the following methods:",
@@ -988,18 +998,14 @@
     const langToggleBtn = document.getElementById('langToggle');
     const langTextSpan = document.getElementById('langText');
     
-    // 获取当前语言，默认为中文，或从 localStorage 读取
     let currentLang = localStorage.getItem('preferredLang') || 'zh';
 
     function updateLanguage(lang) {
-      // 更新按钮文字
       langTextSpan.textContent = lang === 'zh' ? 'EN' : '中文';
       
-      // 更新所有带有 data-i18n 属性的元素
       document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
-          // 如果内容包含 HTML 标签（如 strong），使用 innerHTML
           if (translations[lang][key].includes('<')) {
             element.innerHTML = translations[lang][key];
           } else {
@@ -1008,18 +1014,13 @@
         }
       });
 
-      // 保存偏好
       localStorage.setItem('preferredLang', lang);
       currentLang = lang;
-      
-      // 更新 html lang 属性
       document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
     }
 
-    // 初始化语言
     updateLanguage(currentLang);
 
-    // 绑定点击事件
     langToggleBtn.addEventListener('click', () => {
       const newLang = currentLang === 'zh' ? 'en' : 'zh';
       updateLanguage(newLang);
