@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -553,7 +554,7 @@
         <li><a href="#about" data-i18n="nav_about">关于我</a></li>
         <li><a href="#skills" data-i18n="nav_skills">技能</a></li>
         <li><a href="#projects" data-i18n="nav_projects">项目</a></li>
-        <li><a href="#experience" data-i18n="nav_experience">实习经历</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">工作经历</a></li>
         <li><a href="#contact" data-i18n="nav_contact">联系</a></li>
         <li>
           <button id="langToggle" class="lang-switch-btn" aria-label="Switch Language">
@@ -723,12 +724,29 @@
         </div>
       </section>
 
-      <!-- 实习经历 (已更新) -->
+      <!-- 工作经历 -->
       <section id="experience" class="card">
-        <h2 data-i18n="section_experience">实习经历</h2>
+        <h2 data-i18n="section_experience">工作经历</h2>
         <ul class="experience-list">
           
-          <!-- 经历 1: 龙讯科技 -->
+          <!-- 经历 1: JLR -->
+          <li class="experience-item">
+            <div class="experience-header">
+              <div>
+                <h3 data-i18n="exp_jlr_title">软件工程师</h3>
+                <div class="experience-company" data-i18n="exp_jlr_company">JLR (Jaguar Land Rover)</div>
+              </div>
+              <div class="experience-period" data-i18n="exp_jlr_time">2026/07 - 至今</div>
+            </div>
+            <p data-i18n="exp_jlr_desc">参与捷豹路虎相关软件系统的开发与维护，运用全栈技术推动产品迭代与技术落地。</p>
+            <ul class="experience-duties">
+              <li data-i18n="exp_jlr_duty1">负责后端服务的设计与开发，优化系统性能与数据处理效率。</li>
+              <li data-i18n="exp_jlr_duty2">与跨部门团队紧密协作，参与敏捷开发流程，保障项目高质量交付。</li>
+              <li data-i18n="exp_jlr_duty3">探索前沿技术（如AI应用）在汽车制造与出行服务中的落地场景。</li>
+            </ul>
+          </li>
+
+          <!-- 经历 2: 龙讯科技 -->
           <li class="experience-item">
             <div class="experience-header">
               <div>
@@ -746,7 +764,7 @@
             </ul>
           </li>
 
-          <!-- 经历 2: 安徽商报 -->
+          <!-- 经历 3: 安徽商报 -->
           <li class="experience-item">
             <div class="experience-header">
               <div>
@@ -763,7 +781,7 @@
             </ul>
           </li>
 
-          <!-- 经历 3: UK Education Centre -->
+          <!-- 经历 4: UK Education Centre -->
           <li class="experience-item">
             <div class="experience-header">
               <div>
@@ -807,7 +825,7 @@
 
   <!-- 页脚 -->
   <footer>
-    <p>&copy; 2024 Yaowu Zhang. All rights reserved.</p>
+    <p>&copy; 2026 Yaowu Zhang. All rights reserved.</p>
     <p style="margin-top: 0.5rem; font-size: 0.9rem;" data-i18n="footer_credit">Built with using HTML & CSS</p>
   </footer>
 
@@ -818,14 +836,14 @@
         nav_about: "关于我",
         nav_skills: "技能",
         nav_projects: "项目",
-        nav_experience: "实习经历",
+        nav_experience: "工作经历",
         nav_contact: "联系",
         hero_title: "你好！我是张耀午",
         hero_subtitle: "全栈开发工程师 | 数据科学硕士",
         hero_desc: "欢迎来到我的个人博客，这里记录着我的技术学习、项目经验和思考感悟。",
         section_about: "关于我",
         about_p1: "我是一名充满热情的全栈开发工程师，专注于软件开发、AI 应用落地和技术创新。拥有英国布里斯托大学数据科学硕士背景，喜欢探索新技术，解决实际问题。",
-        about_p2: "在编程的道路上，我始终保持学习的心态，具备扎实的后端（Java/Node.js）与前端（Vue/React）能力，并深入实践 RAG、AI Agent 等前沿技术。",
+        about_p2: "在编程的道路上，我始终保持学习的心态，具备扎实的后端（Java/Node.js）与前端能力，并深入实践 RAG、AI Agent 等前沿技术。",
         about_p3: "这个博客是我记录学习历程、分享技术见解的平台，希望能与更多志同道合的朋友交流。",
         section_skills: "技能栈",
         section_projects: "项目经历",
@@ -864,8 +882,17 @@
         link_preview: "在线预览",
         link_github: "GitHub",
 
-        section_experience: "实习经历",
+        section_experience: "工作经历",
         
+        // JLR
+        exp_jlr_title: "软件工程师",
+        exp_jlr_company: "JLR (Jaguar Land Rover)",
+        exp_jlr_time: "2026/07 - 至今",
+        exp_jlr_desc: "参与捷豹路虎相关软件系统的开发与维护，运用全栈技术推动产品迭代与技术落地。",
+        exp_jlr_duty1: "负责后端服务的设计与开发，优化系统性能与数据处理效率。",
+        exp_jlr_duty2: "与跨部门团队紧密协作，参与敏捷开发流程，保障项目高质量交付。",
+        exp_jlr_duty3: "探索前沿技术（如AI应用）在汽车制造与出行服务中的落地场景。",
+
         // 龙讯科技
         exp1_title: "前端开发实习生",
         exp1_company: "龙讯科技有限公司",
@@ -902,14 +929,14 @@
         nav_about: "About Me",
         nav_skills: "Skills",
         nav_projects: "Projects",
-        nav_experience: "Internship Experience",
+        nav_experience: "Work Experience",
         nav_contact: "Contact",
         hero_title: "Hello! I'm Yaowu Zhang",
         hero_subtitle: "Full Stack Developer | MSc Data Science",
         hero_desc: "Welcome to my personal blog, where I record my technical learning, project experiences, and thoughts.",
         section_about: "About Me",
         about_p1: "I am a passionate Full Stack Developer focused on software development, AI application implementation, and technical innovation. With an MSc in Data Science from the University of Bristol, I love exploring new technologies and solving real-world problems.",
-        about_p2: "On my coding journey, I maintain a learning mindset, possessing solid backend (Java/Node.js) and frontend (Vue/React) capabilities, while deeply practicing cutting-edge technologies like RAG and AI Agents.",
+        about_p2: "On my coding journey, I maintain a learning mindset, possessing solid backend (Java/Node.js) and frontend capabilities, while deeply practicing cutting-edge technologies like RAG and AI Agents.",
         about_p3: "This blog is a platform for me to record my learning journey and share technical insights, hoping to connect with more like-minded friends.",
         section_skills: "Tech Stack",
         section_projects: "Project Experience",
@@ -948,7 +975,16 @@
         link_preview: "Live Preview",
         link_github: "GitHub",
 
-        section_experience: "Internship Experience",
+        section_experience: "Work Experience",
+        
+        // JLR
+        exp_jlr_title: "Software Engineer",
+        exp_jlr_company: "JLR (Jaguar Land Rover)",
+        exp_jlr_time: "Jul 2026 - Present",
+        exp_jlr_desc: "Participate in the development and maintenance of software systems at JLR, utilizing full-stack technologies to drive product iteration and technology implementation.",
+        exp_jlr_duty1: "Responsible for backend service design and development, optimizing system performance and data processing efficiency.",
+        exp_jlr_duty2: "Collaborate closely with cross-functional teams, participating in agile development processes to ensure high-quality project delivery.",
+        exp_jlr_duty3: "Explore the application scenarios of cutting-edge technologies (such as AI applications) in automotive manufacturing and mobility services.",
         
         // Longxun Tech
         exp1_title: "Frontend Development Intern",
@@ -1046,3 +1082,4 @@
   </script>
 </body>
 </html>
+```
